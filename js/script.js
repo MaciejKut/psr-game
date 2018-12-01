@@ -38,6 +38,7 @@ window.onload = function () {
         mainDiv2.classList.add('nonVisible');
         console.log(mainDiv2.classList);
         console.log(mainDiv1.classList);
+        updateResults();
 
 
     });
@@ -83,12 +84,12 @@ window.onload = function () {
 
         if (x == "human") {
 
-            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>User Wins</td></tr >';
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Wygrywa  ' + user + '</td></tr >';
         } else if (x == "draw") {
-            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>It was draw!</td></tr >';
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Remis!</td></tr >';
 
         } else {
-            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Computer Wins</td></tr >';
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Wygrywa Komputer</td></tr >';
 
         }
 
@@ -98,12 +99,12 @@ window.onload = function () {
     function totalResult() {
         if (botWins < manWins) {
 
-            return user + ' wygrał: ' + manWins + 'rund, Komputer: ' + botWins + 'rundy' + "Remisy: " + remisy;
+            return 'Zwyciężył: ' + user + ' Stosunkeim ' + manWins + ' : ' + botWins + " Ilość remisów: " + remisy;
 
         } else if (botWins > manWins) {
-            return ' Komputer wygrał, Komputer: ' + botWins + ', Człowiek: ' + manWins + "Remisy: " + remisy;
+            return ' Komputer wygrał Stosunkem: ' + botWins + ' : ' + manWins + " Ilość remisów: " + remisy;
         } else {
-            return 'Nieźle był remis Komputer: ' + botWins + ', Człowiek: ' + manWins + "Remisy: " + remisy;
+            return 'Nieźle był remis <br/> Komputer: ' + botWins + ' wygranych,<br/>' + user + ' ' + manWins + " wygranych <br/> Ilość remisów: " + remisy;
         }
     }
 
