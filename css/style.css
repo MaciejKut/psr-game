@@ -135,4 +135,12 @@ table {
   border-spacing: 0;
 }
 
+.visible {
+  display: block;
+}
+
+.nonVisible {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

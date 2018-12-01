@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Paper, Scisors, Rock - game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/style.css"
-    />
-    <script src="js/script.js"></script>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <p>Zagraj z komputerem w kultową grę Gra trwa 5 rund.</p>
-          </div>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Paper, Scisors, Rock - game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p>Zagraj z komputerem w kultową grę Gra trwa 5 rund.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <button
-              id="paper"
-              type="button"
-              class="btn btn-lg btn-block btn-outline-primary"
-            >
-              Papier
-            </button>
-          </div>
-        </div>
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <button
-              id="scissors"
-              type="button"
-              class="btn btn-lg btn-block btn-outline-primary"
-            >
-              Nożyczki
-            </button>
-          </div>
-        </div>
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <button
-              id="rock"
-              type="button"
-              class="btn btn-lg btn-block btn-outline-primary"
-            >
-              Kamień
-            </button>
-          </div>
-        </div>
+  <div class="container nonVisible" id="wyniki">
+    <div class="row">
+      <div class="col-md-12 alert alert-warning" id="welcome">
+      </div>
+      <div class="col-md-12 alert alert-warning">
+        <h2>Wybierz jedną z opcji:</h2>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-4 alert alert-primary" role="alert">
+        <h2>Gracz:</h2>
+        <div id="userResult"></div>
+      </div>
+      <div class="col-md-4 alert alert-secondary md-4" role="alert">
+        <h2>Remisy:</h2>
+        <div id="drawResult"></div>
+      </div>
+      <div class="col-md-4 alert alert-success md-4" role="alert">
+        <h2>Komputer:</h2>
+        <div id="compResult"></div>
       </div>
     </div>
 
-    <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">User</th>
-            <th scope="col">Computer</th>
-            <th scope="col">Result</th>
-          </tr>
-        </thead>
-        <tbody id="output"></tbody>
-      </table>
-    </div>
+  </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+  <div class="container nonVisible" id="mainDiv1">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <button id="paper" type="button" class="btn btn-lg btn-block btn-outline-primary">
+            Papier
+          </button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <button id="scissors" type="button" class="btn btn-lg btn-block btn-outline-primary">
+            Nożyczki
+          </button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <button id="rock" type="button" class="btn btn-lg btn-block btn-outline-primary">
+            Kamień
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container visible" id="mainDiv2">
+    <div class="card-deck mb-12 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            Zagraj w grę. Kliknij przycisk poniżej i zobacz kto będzie miał więcej szczęścia.
+          </h3>
+        </div>
+        <div class="card-body">
+
+          <button id="newGame" type="button" class="btn btn-lg btn-block btn-primary">
+            Nowa Gra
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Runda nr</th>
+          <th scope="col">Gracz</th>
+          <th scope="col">Komputer</th>
+          <th scope="col">Zwycięzca rundy:</th>
+        </tr>
+      </thead>
+      <tbody id="output"></tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

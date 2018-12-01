@@ -4,6 +4,13 @@ window.onload = function () {
     var rock = document.getElementById('rock');
     var results = document.getElementById('output')
     var wyniki = document.getElementById('wyniki');
+    var newGame = document.getElementById('newGame');
+    var mainDiv1 = document.getElementById('mainDiv1');
+    var mainDiv2 = document.getElementById('mainDiv2');
+    var welcome = document.getElementById('welcome');
+    var playerResult = document.getElementById('userResult')
+    var computerResult = document.getElementById('compResult');
+    var drawResult = document.getElementById('drawResult');
     var roundcounter = 0;
     var human = "human";
     var bot = "bot";
@@ -13,6 +20,28 @@ window.onload = function () {
     var manWins = 0;
     var botWins = 0;
     var remisy = 0;
+    var user;
+
+    newGame.addEventListener('click', function () {
+        user = window.prompt('Podaj imię', 'Stranger');
+        console.log(user);
+        roundcounter = 0;
+        manWins = 0;
+        botWins = 0;
+        remisy = 0;
+        results.innerHTML = ' ';
+        welcome.innerHTML = '<h1>Cześć ' + user + '!</h1>';
+        wyniki.classList.remove('nonVisible');
+        wyniki.classList.add('visible');
+        mainDiv1.classList.add('visible');
+        mainDiv1.classList.remove('nonVisible');
+        mainDiv2.classList.add('nonVisible');
+        console.log(mainDiv2.classList);
+        console.log(mainDiv1.classList);
+
+
+    });
+
 
     function computerDraw() {
         var example = Math.ceil((Math.random() * 3));
@@ -21,11 +50,11 @@ window.onload = function () {
 
     function convertNumber(x) {
         if (x == 1) {
-            return 'paper';
+            return 'Papier';
         } else if (x == 2) {
-            return 'scissors';
+            return 'Nożyczki';
         } else {
-            return 'rock';
+            return 'Kamień';
         }
     };
 
@@ -41,24 +70,36 @@ window.onload = function () {
             botWins++
             return bot;
         }
+
+    }
+
+    function updateResults() {
+        playerResult.innerHTML = manWins;
+        computerResult.innerHTML = botWins;
+        drawResult.innerHTML = remisy;
     }
 
     var callbackOutput = function (x) {
+
         if (x == "human") {
-            results.insertAdjacentHTML('beforeend', '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>User Wins</td></tr >');
+
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>User Wins</td></tr >';
         } else if (x == "draw") {
-            results.insertAdjacentHTML('beforeend', '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>It was draw!</td></tr >');
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>It was draw!</td></tr >';
 
         } else {
-            results.insertAdjacentHTML('beforeend', '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Computer Wins</td></tr >');
+            results.innerHTML = '<tr><th scope="row">' + roundcounter + '</th><td>' + convertNumber(manDraw) + '</td><td>' + convertNumber(botDraw) + '</td><td>Computer Wins</td></tr >';
 
         }
+
     }
 
 
     function totalResult() {
         if (botWins < manWins) {
-            return 'Człowiek wygrał: ' + manWins + 'rund, Komputer: ' + botWins + 'rundy' + "Remisy: " + remisy;
+
+            return user + ' wygrał: ' + manWins + 'rund, Komputer: ' + botWins + 'rundy' + "Remisy: " + remisy;
+
         } else if (botWins > manWins) {
             return ' Komputer wygrał, Komputer: ' + botWins + ', Człowiek: ' + manWins + "Remisy: " + remisy;
         } else {
@@ -75,13 +116,20 @@ window.onload = function () {
             setTimeout(function () {
                 alert(totalResult());
             }, 500);
-
+            mainDiv1.classList.add('nonVisible');
+            mainDiv1.classList.remove('Visible');
+            mainDiv2.classList.add('Visible');
+            mainDiv2.classList.remove('nonVisible');
+            results.innerHTML = '';
+            // wyniki.classList.remove('visible');
+            // wyniki.classList.add('nonVisible');
         } else {
-            roundcounter = 0;
-            manWins = 0;
-            botWins = 0;
-            remisy = 0;
-            results.innerHTML = ' ';
+
+            mainDiv1.classList.add('nonVisible');
+            mainDiv1.classList.remove('Visible');
+            mainDiv2.classList.add('Visible');
+            mainDiv2.classList.remove('nonVisible');
+
         }
     }
 
@@ -90,6 +138,7 @@ window.onload = function () {
         manDraw = 2;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
+        updateResults();
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
@@ -100,6 +149,7 @@ window.onload = function () {
         manDraw = 3;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
+        updateResults();
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
@@ -109,6 +159,7 @@ window.onload = function () {
         manDraw = 1;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
+        updateResults();
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
