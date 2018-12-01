@@ -42,5 +42,8 @@
     "nu-html-checker": "^0.1.0",
     "onchange": "^5.1.0",
     "superagent": "^3.7.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3"
   }
 }
