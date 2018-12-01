@@ -66,20 +66,27 @@ window.onload = function () {
         }
     }
 
-    function totalRounds(x, y) {
-        if (x <= 5) {
-            console.log('Rundę' + x + 'wygrywa' + y);
+    function totalRounds(x, b) {
+        if (x < 5) {
+            console.log('wewnątrz total Rounds' + x);
+
+        } else if (x == 5) {
+            console.log('wewnątrz total Rounds' + x);
+            setTimeout(function () {
+                alert(totalResult());
+            }, 500);
+
         } else {
-            alert(totalResult());
-            results.innerHTML = ' ';
             roundcounter = 0;
             manWins = 0;
             botWins = 0;
-
+            remisy = 0;
+            results.innerHTML = ' ';
         }
     }
 
     scissors.addEventListener('click', function () {
+
         manDraw = 2;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
@@ -89,6 +96,7 @@ window.onload = function () {
     });
 
     rock.addEventListener('click', function () {
+
         manDraw = 3;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
@@ -97,13 +105,13 @@ window.onload = function () {
         totalRounds(roundcounter, foo);
     });
     paper.addEventListener('click', function () {
+
         manDraw = 1;
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
-
     });
 
 
