@@ -63,7 +63,7 @@ window.onload = function () {
         if ((x == 1 && y == 3) || (x == 2 && y == 1) || (x == 3 && y == 2)) {
             manWins++
             return human;
-        } else if ((x == 1 && y == 1) || (x == 2 && y == 2) || (x == 3 && y == 3)) {
+        } else if (x === y) {
             remisy++;
             return draw;
 
@@ -104,66 +104,50 @@ window.onload = function () {
         } else if (botWins > manWins) {
             return ' Komputer wygrał Stosunkem: ' + botWins + ' : ' + manWins + " Ilość remisów: " + remisy;
         } else {
-            return 'Nieźle był remis <br/> Komputer: ' + botWins + ' wygranych,<br/>' + user + ' ' + manWins + " wygranych <br/> Ilość remisów: " + remisy;
+            return 'Nieźle był remis  Komputer: ' + botWins + ' wygranych, ' + user + ' ' + manWins + " wygranych  Ilość remisów: " + remisy;
         }
     }
 
     function totalRounds(x, b) {
         if (x < 5) {
             console.log('wewnątrz total Rounds' + x);
-
+            return;
         } else if (x == 5) {
             console.log('wewnątrz total Rounds' + x);
             setTimeout(function () {
                 alert(totalResult());
             }, 500);
-            mainDiv1.classList.add('nonVisible');
-            mainDiv1.classList.remove('Visible');
-            mainDiv2.classList.add('Visible');
-            mainDiv2.classList.remove('nonVisible');
             results.innerHTML = '';
-            // wyniki.classList.remove('visible');
-            // wyniki.classList.add('nonVisible');
+
         } else {
 
-            mainDiv1.classList.add('nonVisible');
-            mainDiv1.classList.remove('Visible');
-            mainDiv2.classList.add('Visible');
-            mainDiv2.classList.remove('nonVisible');
-
         }
+        mainDiv1.classList.add('nonVisible');
+        mainDiv1.classList.remove('Visible');
+        mainDiv2.classList.add('Visible');
+        mainDiv2.classList.remove('nonVisible');
     }
 
-    scissors.addEventListener('click', function () {
-
-        manDraw = 2;
+    function play() {
         botDraw = computerDraw();
         var foo = whoWins(manDraw, botDraw);
         updateResults();
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
+    }
+    scissors.addEventListener('click', function () {
+        manDraw = 2;
+        play();
     });
 
     rock.addEventListener('click', function () {
-
         manDraw = 3;
-        botDraw = computerDraw();
-        var foo = whoWins(manDraw, botDraw);
-        updateResults();
-        roundcounter++;
-        callbackOutput(foo);
-        totalRounds(roundcounter, foo);
+        play();
     });
     paper.addEventListener('click', function () {
-
         manDraw = 1;
-        botDraw = computerDraw();
-        var foo = whoWins(manDraw, botDraw);
-        updateResults();
-        roundcounter++;
-        callbackOutput(foo);
-        totalRounds(roundcounter, foo);
+        play();
     });
 
 
