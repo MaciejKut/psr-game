@@ -45,7 +45,7 @@ window.onload = function () {
 
 
     function computerDraw() {
-        var example = Math.ceil((Math.random() * 3));
+        var example = Math.floor((Math.random() * 3) + 1);
         return example;
     }
 
