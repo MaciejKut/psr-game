@@ -119,9 +119,8 @@ window.onload = function () {
             }, 500);
             results.innerHTML = '';
 
-        } else {
-
         }
+
         mainDiv1.classList.add('nonVisible');
         mainDiv1.classList.remove('Visible');
         mainDiv2.classList.add('Visible');
@@ -136,6 +135,7 @@ window.onload = function () {
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
     }
+
     scissors.addEventListener('click', function () {
         manDraw = 2;
         play();
