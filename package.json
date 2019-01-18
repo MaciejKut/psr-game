@@ -1,5 +1,5 @@
 {
-  "name": "gra-pnkg",
+  "name": "psr-game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,15 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaciejKut/gra-pnkg.git"
+    "url": "git+https://github.com/MaciejKut/psr-game"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaciejKut/gra-pnkg/issues"
+    "url": "https://github.com/MaciejKut/psr-game/issues"
   },
-  "homepage": "https://github.com/MaciejKut/gra-pnkg#readme",
+  "homepage": "https://github.com/MaciejKut/psr-game#readme",
   "devDependencies": {
     "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.26.3",

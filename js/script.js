@@ -25,6 +25,7 @@ window.onload = function () {
     newGame.addEventListener('click', function () {
         user = window.prompt('Podaj imię', 'Stranger');
         console.log(user);
+        userPlayCallback();
         roundcounter = 0;
         manWins = 0;
         botWins = 0;
@@ -134,6 +135,12 @@ window.onload = function () {
         roundcounter++;
         callbackOutput(foo);
         totalRounds(roundcounter, foo);
+    }
+
+    var playerButtons = document.querySelectorAll('.player-move');
+    var userPlayCallback = function () {
+        console.log(playerButtons);
+
     }
 
     scissors.addEventListener('click', function () {
