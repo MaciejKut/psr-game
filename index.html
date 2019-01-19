@@ -63,7 +63,7 @@
 
         <button data-move="scissors" id="scissors" type="button" class="btn btn-lg btn-block btn-outline-primary player-move">
           Nożyczki
-
+        </button>
 
       </div>
       <div class="col-4">
@@ -84,7 +84,8 @@
           </h3>
         </div>
         <div class="card-body">
-
+          <!-- <p><a href="#modal-two" class="btn btn-lg btn-block btn-primary show-modal">Show modal two</a></p>
+          <br> -->
           <button id="newGame" type="button" class="btn btn-lg btn-block btn-primary">
             Nowa Gra
           </button>
@@ -106,6 +107,62 @@
       <tbody id="output"></tbody>
     </table>
   </div>
+
+  <p><a href="#modal-one" class="show-modal">Sprawdź aktualny stan gry.</a></p>
+  <!-- <p><a href="#modal-two" class="show-modal">Show modal two</a></p>
+  <p><a href="#modal-three" class="show-modal">Show modal three</a></p> -->
+  <div class="overlay" id="modal-overlay">
+
+
+    <div class="modal" id="modal-one">
+      <a href="#" class="close">x</a>
+      <header>Modal one</header>
+      <div class="content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Runda nr</th>
+              <th scope="col">Gracz</th>
+              <th scope="col">Komputer</th>
+              <th scope="col">Zwycięzca rundy:</th>
+            </tr>
+          </thead>
+          <tbody id="outputInModal"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-two">
+      <a href="#" class="close">x</a>
+      <header>
+        <h2>Witaj nieznajomy! Podaj imię zanim zaczniemy!</h2>
+      </header>
+      <div class="content">
+        <button id="newGame" type="button" class="btn btn-lg btn-block btn-primary">
+          Nowa Gra
+        </button>
+
+        <!-- <form id="frm1" action="#">
+          Wpisz twoje imę tutaj: <input type="text" id="fname" value="Imię"><br>
+          <br>
+          <input id="newGame" class="btn btn-lg btn-block btn-primary" type="button" value="Zaczynamy grę">
+        </form> -->
+
+
+      </div>
+    </div>
+
+    <!-- <div class="modal" id="modal-three">
+      <a href="#" class="close">x</a>
+      <header>Modal three</header>
+      <div class="content">
+        <p>Dolor sit amet!</p>
+      </div>
+    </div> -->
+
+  </div>
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
